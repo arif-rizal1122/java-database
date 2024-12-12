@@ -25,4 +25,25 @@
 2. Kita perlu melakukan registrasi Driver terlebih dahulu
 3. Untuk melakukan registrasi driver, kita bisa menggunakan static method registerDriver milik class java.sql.DriverManager
 
+# CONNECTION
+1. Setelah melakukan registrasi Driver ke JDBC, kita sekarang bisa mulai melakukan koneksi ke database
+2. Untuk melakukan koneksi ke database, kita harus memberi tahu jenis database, host, port, username dan password untuk terkoneksi ke database
+3. Semua itu biasanya digabungkan dalam sebuah string yang biasa disebut JDBC URL
+4. Koneksi ke database direpresentasikan oleh interface java.sql.Connection
+5. https://docs.oracle.com/en/java/javase/15/docs/api/java.sql/java/sql/Connection.html 
 
+¥ MySQL JDBC URL
+1. Tiap database biasanya punya format jdbc url sendiri-sendiri
+2. Contohnya di MySQL, kita bisa menggunakan format seperti ini :
+3. jdbc:mysql://host:port/namadatabase
+
+¥ MEMBUAT CONNECTION
+1. Untuk membuat Connection ke database, kita bisa menggunakan static method getConnection() di class java.sql.DriverManager
+2. Semua method di JDBC rata-rata selalu akan menghasilkan SQLException
+
+¥ MENUTUP CONNECTION
+1. Saat kita selesai menggunakan Connection, disarankan untuk selalu menutup Connection tersebut.
+2. Jika sebuah Connection tidak kita tutup, maka selama aplikasi kita berjalan, koneksi ke datatabase akan selalu terbuka
+3. Jika Connection yang terbuka ke database terlalu banyak, ditakutkan nanti kita tidak bisa membuka koneksi lagi ke database dikarenakan sudah menyentuh nilai maksimam koneksi yang bisa di tangani oleh database nya
+4. Contohnya, maksimum Connection di MySQL adalah 151
+5. https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections 
