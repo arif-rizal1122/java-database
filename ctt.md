@@ -93,3 +93,16 @@ executeUpdate(sql) mengembalikan return int, dimana ini biasanya mengembalikan b
 1. Jika kita ingin mengirim perintah SQL yang mengembalikan data, maka kita bisa menggunakan method executeQuery(sql)
 2. Method ini akan mengembalikan object java.sql.ResultSet, yaitu berisikan data-data hasil query SQL yang kita kirimkan
 3. Pembahasan interface ResultSet akan kita bahas lebih detail lagi nanti di chapter tersendiri
+
+# RESUL SET
+
+1. Seperti yang sudah kita bahas sebelumnya di Statement, ketika kita melakukan query, maka akan menghasilkan java.sql.ResultSet
+2. ResultSet adalah representasi data hasil query dari database
+3. ResultSet itu mirip seperti iterator, jadi kita bisa melakukan perulangan di ResultSet untuk mendapatkan data tiap record nya
+4. https://docs.oracle.com/en/java/javase/15/docs/api/java.sql/java/sql/ResultSet.html 
+
+¥ MENGAMBIL DATA KOLOM DI RESULT
+1. Cara kerja ResultSet adalah seperti cursor, dimana untuk maju kita menggunakan method next() dan untuk mundur, kita bisa menggunakan method previous()
+2. Untuk mendapatkan data tiap kolom pada saat sekarang kita berada di lokasi cursor nya, kita bisa menggunakan banyak sekali method getXxx(column) di ResultSet
+3. Kita bisa sesuaikan dengan tipe data kolom tersebut, misal getString(column), getInt(column), dan lain-lain
+
