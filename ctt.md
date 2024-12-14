@@ -123,6 +123,61 @@ executeUpdate(sql) mengembalikan return int, dimana ini biasanya mengembalikan b
 3. Untuk menghindari SQL Injection, terdapat interface bernama PreparedStatement, ini adalah jenis statement yang bisa menangani SQL Injection dengan baik
 4. Kita akan bahas PreparedStatement di chapter tersendiri
 
+# PREPARED STATMENT
+1. PreparedStatement adalah turunan dari Statement, jadi apapun yang bisa dilakukan Statement, bisa dilakukan juga oleh PreparedStatement
+2. Yang membedakan PreparedStatement dari Statement adalah, PreparedStatement memiliki kemampuan untuk mengamankan input dari user sehingga aman dari serangan SQL Injection
+
+¥ MEMBUAT PREPARED STATMENT
+1. Berbeda dengan Statement, pada PreparedStatement, ketika pembuatannya, sudah ditentukan SQL apa yang akan kita gunakan
+2. Oleh karena itu, PreparedStatement biasanya digunakan untuk sekali mengirim perintah SQL, jika ingin mengirim perintah SQL lagi, kita harus membuat PreparedStatement baru
+3. Untuk membuat PreparedStatement, kita bisa menggunakan method prepareStatement(sql) milik Connection
+
+¥ MENERIMA INPUT USER
+1. Sekarang pertanyaannya, bagaimana cara menerima input user menggunakan PreparedStatement?
+2. Untuk menerima input dari user, SQL yang kita buat harus diubah juga
+3. Input dari user, perlu kita ubah menjadi ? (tanda tanya)
+4. Nanti ketika pembuatan object, kita bisa subtitusi datanya menggunakan setXxx(index, value) sesuai dengan tipe datanya, misal setString(), setInt() dan lain-lain
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
