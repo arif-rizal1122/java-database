@@ -68,3 +68,28 @@ Membuat connection pool secara manual bukanlah hal bijak, lebih baik kita menggu
 HikariCP adalah salah satu connection pool library yang paling populer saat ini di Java
 Kita bisa menggunakan HikariCP ini untuk melakukan connection pool terhadap koneksi database di aplikasi kita
 https://github.com/brettwooldridge/HikariCP 
+
+# STATMENT
+
+¥ MENGIRIM PERINTAH SQL
+1. Saat kita terkoneksi ke database via Connection, sudah pasti kita ingin mengirim perintah SQL ke database
+2. Connection adalah object yang bertugas sebagai jembatan koneksi dari aplikasi kita ke database, untuk mengirim perintah SQL, kita bisa menggunakan beberapa object lain, salah satunya yang akan kita bahas sekarang, yaitu Statement
+
+
+¥ STATMENT
+1. java.sql.Statement adalah interface yang bisa kita gunakan untuk mengirim SQL ke database, sekaligus menerima response data dari database
+2. Ada banyak method yang bisa kita gunakan di Statement untuk mengirim perintah SQL, kita akan bahas satu persatu
+3. https://docs.oracle.com/en/java/javase/15/docs/api/java.sql/java/sql/Statement.html
+4. Untuk membuat statement kita bisa menggunakan method createStatement() milik Connection
+
+¥ Statement.executeUpdate(sql)
+Method pertama yang akan kita bahas adalah executeUpdate(sql)
+Method ini digunakan untuk mengirim perintah SQL INSERT, UPDATE, DELETE atau apapun yang tidak membutuhkan result
+Bahkan bisa perintah SQL DDL (create table, create index, dan lain-lain), walaupun best practice nya, perintah DDL lebih baik dilakukan langsung di database, atau menggunakan migration script, tidak dari aplikasi
+executeUpdate(sql) mengembalikan return int, dimana ini biasanya mengembalikan berapa banyak record di database yang terkena impact perintah SQL kita, misal ketika mengirim perintah UPDATE, berapa banyak record yang ter-update misalnya
+
+
+¥ Statement.executeQuery(sql)
+1. Jika kita ingin mengirim perintah SQL yang mengembalikan data, maka kita bisa menggunakan method executeQuery(sql)
+2. Method ini akan mengembalikan object java.sql.ResultSet, yaitu berisikan data-data hasil query SQL yang kita kirimkan
+3. Pembahasan interface ResultSet akan kita bahas lebih detail lagi nanti di chapter tersendiri
