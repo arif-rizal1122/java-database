@@ -138,6 +138,26 @@ executeUpdate(sql) mengembalikan return int, dimana ini biasanya mengembalikan b
 3. Input dari user, perlu kita ubah menjadi ? (tanda tanya)
 4. Nanti ketika pembuatan object, kita bisa subtitusi datanya menggunakan setXxx(index, value) sesuai dengan tipe datanya, misal setString(), setInt() dan lain-lain
 
+# BATCH PROCCESS
+
+¥ REQUEST & RESPONSE
+1. Secara default, komunikasi antara database dan aplikasi Java kita adalah request dan response
+2. Artinya, setiap kali kita mengirim perintah SQL, maka aplikasi kita akan menunggu sampai database melakukan response dari perintah SQL tersebut
+3. Proses tersebut kadang terlalu chatty kalo tujuan kita misal ingin mengirim data secara banyak ke database
+
+¥ BATCH PROCCCESS
+1. Batch process adalah proses mengirim perintah secara banyak sekaligus.
+2. Biasanya batch process dilakukan dalam kasus tertentu saja, misal ketika kita ingin mengirim import data dari file excel ke database yang jumlahnya jutaan.
+3. Biasanya dalam batch process, yang diutamakan adalah kecepatan, karena jika perintah SQL nya di execute satu satu dan menunggu response satu satu, maka sudah pasti akan sangat lambat sekali
+
+
+¥ BATCH PROCCESS DI JDBC
+1. JDBC mendukung proses eksekusi perintah SQL secara batch di Statement ataupun di PreparedStatement
+2. Di Statement, terdapat method addBatch(sql) untuk menambahkan perintah ke proses batch
+3. Sedangkan di PreparedStatement terdapat method addBatch() untuk menambahkan proses ke batch, lalu bisa gunakan method clearParameters() untuk menghapus parameter input user sebelumnya.
+4. Setelah proses batch selesai, untuk mengeksekusinya, kita bisa gunakan perintah executeBatch()
+
+
 
 
 
