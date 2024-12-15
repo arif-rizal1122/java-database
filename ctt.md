@@ -187,6 +187,28 @@ Setelah itu, untuk mendapatkan auto generate key, kita bisa menggunakan method g
 4. Sesuai dengan namanya, class-class tersebut digunakan sebagai representasi di Java
 5. Secara otomatis JDBC bisa melakukan konversi tipe data tersebut dari database menjadi object di Java
 
+# DATABASE TRANSACTION
+
+1. Fitur paling bermanfaat di database salah satu nya adalah database transaction
+2. Fitur database transaction pun bisa kita jalankan menggunakan JDBC
+3. Jika belum mengerti apa itu database transaction, silahkan tonton course saya tentang database MySQL, disana saya jelaskan secara terperinci
+
+¥ AUTO COMMIT
+1. Secara default, Connection yang kita buat menggunakan JDBC memiliki sifat auto commit
+2. Auto commit artinya setiap perintah SQL yang kita kirim akan langsung di commit secara otomatis
+3. Karena dalam database transaction, kita biasanya melakukan commit transaction setelah semua proses selesai, maka kita perlu mematikan auto commit di JDBC
+4. Untuk mematikan fitur auto commit di JDBC, kita bisa menggunakan method di Connection bernama setAutoCommit(false)
+5. Setelah selesai melakukan proses , kita bisa melakukan commit transaction dengan menggunakan method commit() milik Connection
+6. Untuk membatalkan proses transaksi (rollback), kita bisa menggunakan method rollback() milik Connection
+
+
+
+
+
+
+
+
+
 
 
 
