@@ -229,6 +229,22 @@ Setelah itu, untuk mendapatkan auto generate key, kita bisa menggunakan method g
 1. ResultSetMetaData adalah informasi seputar hasil ResultSet
 2. Dengan ResultSetMetaData, kita bisa mendapatkan informasi tentang jumlah kolom, nama kolom, tipe data tiap kolom nya, dan lain-lain
 
+# REPOSITORY PATERN
+
+1. Dalam buku Domain-Driven Design, Eric Evans menjelaskan bahwa “repository is a mechanism for encapsulating storage, retrieval, and search behavior, which emulates a collection of objects”
+2. Pattern Repository ini biasanya digunakan sebagai jembatan antar business logic aplikasi kita dengan semua perintah SQL ke database
+3. Jadi semua perintah SQL akan ditulis di Repository, sedangkan business logic kode program kita hanya cukup menggunakan Repository tersebut
+
+¥ Repository vs DAO (Data Access Object)
+1. Jika teman-teman cari tutorial tentang Java Database, banyak juga yang menggunakan Data Access Object
+2. Secara garis besar, konsep Repository dan DAO hampir sama, yang membedakan Repository tidak menganggap bahwa storage itu hanya database, sedangkan biasanya kalo di DAO storage nya berupa database
+3. Jadi untuk kasus database, sebenarnya DAO lebih cocok, namun karena sekarang lebih populer nama Repository Pattern, jadi sekarang kita akan gunakan Repository Pattern
+4. Jika berdebat dengan programmer lain, tentang Repository dan DAO, sebenarnya gak terlalu berguna, karena tujuan dua pattern itu sama, mengenkapsulasi cara mengakses data
+
+¥ ENTITY / MODEL
+1. Dalam pemrograman berorientasi object, biasanya sebuah tabel di database akan selalu dibuat representasinya sebagai class Entity atau Model
+2. Ini bisa mempermudah ketika membuat kode program
+3. Misal ketika kita query ke Repository, dibanding mengembalikan ResultSet, alangkah baiknya Repository melakukan konversi terlebih dahulu ke class Entity / Model, sehingga kita tinggal menggunakan objectnya saja
 
 
 
