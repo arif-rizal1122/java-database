@@ -179,6 +179,15 @@ Sedangkan untuk PreparedStatement, kita perlu memberi tahu ketika membuat prepar
 Setelah itu, untuk mendapatkan auto generate key, kita bisa menggunakan method getGeneratedKeys(), method ini akan error jika kita lupa mengirim parameter generated keys
 
 
+# DATE, TIME AND TIMESTAMP
+
+1. Seperti kita ketahui, tipe tanggal dan waktu di database biasanya banyak, ada Date, Time ada juga Timestamp
+2. Sedangkan di Java hanya terdapat tipe data java.util.Date
+3. Agar bisa menghandle hal ini, terdapat class-class turunan java.util.Date di package java.sql yang bernama Date, Time dan Timestamp
+4. Sesuai dengan namanya, class-class tersebut digunakan sebagai representasi di Java
+5. Secara otomatis JDBC bisa melakukan konversi tipe data tersebut dari database menjadi object di Java
+
+
 
 
 
