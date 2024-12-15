@@ -157,6 +157,10 @@ executeUpdate(sql) mengembalikan return int, dimana ini biasanya mengembalikan b
 3. Sedangkan di PreparedStatement terdapat method addBatch() untuk menambahkan proses ke batch, lalu bisa gunakan method clearParameters() untuk menghapus parameter input user sebelumnya.
 4. Setelah proses batch selesai, untuk mengeksekusinya, kita bisa gunakan perintah executeBatch()
 
+¥ PERINGATAN
+Proses batch akan disimpan di memory sebelum dikirim ke database
+Oleh karena itu, bijaklah membuat proses batch, jangan terlalu banyak menambahkan ke batch, misal per 100 atau per 1000
+Jika sudah mencapai 100 atau 1000, kita bisa mengirim batch tersebut menggunakan perintah executeBatch()
 
 
 
