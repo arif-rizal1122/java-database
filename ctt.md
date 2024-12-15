@@ -201,6 +201,36 @@ Setelah itu, untuk mendapatkan auto generate key, kita bisa menggunakan method g
 5. Setelah selesai melakukan proses , kita bisa melakukan commit transaction dengan menggunakan method commit() milik Connection
 6. Untuk membatalkan proses transaksi (rollback), kita bisa menggunakan method rollback() milik Connection
 
+# METADATA
+
+1. Kadang kita ingin mendapat informasi seputar database yang kita gunakan
+2. Informasi tersebut bernama MetaData
+3. Ada banyak jenis metadata, seperti DatabaseMetaData, ParameterMetaData, ResultSetMetaData
+4. https://docs.oracle.com/en/java/javase/15/docs/api/java.sql/java/sql/DatabaseMetaData.html
+5. https://docs.oracle.com/en/java/javase/15/docs/api/java.sql/java/sql/ParameterMetaData.html
+6. https://docs.oracle.com/en/java/javase/15/docs/api/java.sql/java/sql/ResultSetMetaData.html 
+
+
+¥ DATABASE METADATA
+
+1. DatabaseMetaData adalah informasi seputar seluruh database yang kita gunakan, seperti misal :
+ - Nama database
+ - Versi database
+ - Table yang ada di database
+ - dan lain-lain
+2. Untuk membuat DatabaseMetaData, kita bisa menggunakan method getMetaData() dari object Collection
+
+¥ PARAMETER METADATA
+1. ParameterMetadata adalah informasi seputar parameter yang terdapat di PreparedStatement
+2. Dengan ParameterMetadata, kita bisa mendapat banyak informasi parameter yang bisa digunakan untuk input di PreparedStatement, seperti berapa banyak parameter, tipe data parameter, dan lain-lain
+3. Namun perlu diperhatikan, beberapa Driver mungkin tidak mendukung untuk mendapatkan jenis tipe parameter di ParameterMetadata
+
+¥ RESULT SET METADATA
+1. ResultSetMetaData adalah informasi seputar hasil ResultSet
+2. Dengan ResultSetMetaData, kita bisa mendapatkan informasi tentang jumlah kolom, nama kolom, tipe data tiap kolom nya, dan lain-lain
+
+
+
 
 
 
